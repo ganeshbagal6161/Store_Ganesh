@@ -10,17 +10,18 @@ import org.openqa.selenium.io.FileHandler;
 
 
 public class Webdriver_Utility {
+	Java_Utility java=new Java_Utility();
 	public void getWebPageScreenshot() throws IOException {
 		TakesScreenshot ts=(TakesScreenshot) Base_Test.sDriver;
 		File temp = ts.getScreenshotAs(OutputType.FILE);
-		File dest = new File("");
+		File dest = new File(Framework_Constant.screenshotPath+java.localDateTime()+".png");
 		FileHandler.copy(temp, dest);
 		
 	}
 	
 	public void getWebElementScreenshot(WebElement ele) throws IOException {
 		File temp = ele.getScreenshotAs(OutputType.FILE);
-		File dest = new File("");
+		File dest = new File(Framework_Constant.screenshotPath+java.localDateTime()+".png");
 		FileHandler.copy(temp, dest);
 	}
 	
